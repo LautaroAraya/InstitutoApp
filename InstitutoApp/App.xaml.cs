@@ -1,4 +1,6 @@
-﻿namespace InstitutoApp
+﻿using InstitutoApp.Views;
+
+namespace InstitutoApp
 {
     public partial class App : Application
     {
@@ -6,7 +8,7 @@
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new CarrerasView();
         }
     }
 }

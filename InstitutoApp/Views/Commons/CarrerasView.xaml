@@ -12,7 +12,9 @@
                 HorizontalOptions="Center" />
             <ActivityIndicator IsRunning="{Binding ActivityStart}" />
             <CollectionView
-                ItemsSource="{Binding Carreras}">
+                ItemsSource="{Binding Carreras}"
+                SelectedItem="{Binding CarreraCurrent}"
+                SelectionMode="Single">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid ColumnDefinitions="*,*" >
@@ -22,6 +24,9 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+            <Button Text="Agregar" WidthRequest="150" Command="{Binding AgregarCommand}"/>
+            <Button Text="Editar" WidthRequest="150" Command="{Binding EditarCommand}"/>
+            <Button Text="Eliminar" WidthRequest="150" Command="{Binding EliminarCommand}"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

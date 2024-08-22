@@ -44,19 +44,31 @@ namespace InstitutoApp.ViewModels.Commons
 			}
 		}
 
+		private bool isRefreshing;
+
+		public bool IsRefreshing
+		{
+			get { return isRefreshing; }
+			set { isRefreshing = value;
+				OnPropertyChanged();
+			}
+		}
+
 
 		public Command AgregarCommand { get;}
 		public Command EditarCommand { get; }
 		public Command EliminarCommand { get; }
+		public Command ObtenerTodosCommand { get; }
 
 
 		public CarrerasViewModel()
         {
 			carreras = new ObservableCollection<Carrera>();
-			ObtenerCarreras();
+			ObtenerCarreras(this);
 			AgregarCommand = new Command(Agregar);
             EditarCommand = new Command(Editar, PermitirEditar);
 			EliminarCommand = new Command(Eliminar, PermitirElimiar);
+			ObtenerTodosCommand=new Command(ObtenerCarreras);
         }
 
         private bool PermitirElimiar(object arg)
@@ -71,7 +83,7 @@ namespace InstitutoApp.ViewModels.Commons
 			{
 				activityStart = true;
 				await carreraService.DeleteAsync(carreraCurrent.Id);
-				ObtenerCarreras();
+				ObtenerCarreras(this);
 			}
         }
 
@@ -90,7 +102,7 @@ namespace InstitutoApp.ViewModels.Commons
             throw new NotImplementedException();
         }
 
-        private async void ObtenerCarreras()
+        private async void ObtenerCarreras(object arg)
         {
 			ActivityStart = true;
             var carreras=await carreraService.GetAllAsync();

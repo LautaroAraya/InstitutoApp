@@ -11,6 +11,9 @@
                 VerticalOptions="Start" 
                 HorizontalOptions="Center" />
             <ActivityIndicator IsRunning="{Binding ActivityStart}" />
+            <RefreshView IsRefreshing="{Binding IsRefreshing}"
+                         Command="{Binding ObtenerTodos}">
+            </RefreshView>
             <CollectionView
                 ItemsSource="{Binding Carreras}"
                 SelectedItem="{Binding CarreraCurrent}"

@@ -1,4 +1,5 @@
 ﻿using InstitutoApp.Views;
+using InstitutoApp.Views.Commons;
 
 namespace InstitutoApp
 {
@@ -8,7 +9,7 @@ namespace InstitutoApp
         {
             InitializeComponent();
 
-            MainPage = new CarrerasView();
+            MainPage = new AddEditCarreraView();
         }
     }
 }

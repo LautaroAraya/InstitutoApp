@@ -17,7 +17,8 @@
             <CollectionView
                 ItemsSource="{Binding Carreras}"
                 SelectedItem="{Binding CarreraCurrent}"
-                SelectionMode="Single">
+                SelectionMode="Single"
+                ItemsUpdatingScrollMode="KeepLastItemInView">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid ColumnDefinitions="*,*" >

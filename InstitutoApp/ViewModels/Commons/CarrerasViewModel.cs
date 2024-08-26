@@ -112,6 +112,7 @@ namespace InstitutoApp.ViewModels.Commons
 				Carreras.Add(carrera);
 			}
 			ActivityStart = false;
+			IsRefreshing = false;
 
         }
     }
